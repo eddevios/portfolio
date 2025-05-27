@@ -10,6 +10,9 @@ Portfolio profesional desarrollado con React, TypeScript y Tailwind CSS, present
 - **Framer Motion** – Animaciones declarativas
 - **Lucide React** – Iconos SVG como componentes React
 - **Vite** – Dev server ultrarrápido y bundler
+
+### Tecnologías adicionales
+
 - **Firebase Hosting** – para servir la build en producción y gestionar dominios
 - **GitHub Actions** – pipeline CI/CD que compila con Vite y despliega a Firebase automáticamente
 - **Node.js & npm** – entorno de ejecución y gestor de paquetes
@@ -86,6 +89,81 @@ npm run dev
 ```
 
 ## 🔧 Desarrollo
+
+## 🔀 Flujo de trabajo con Git y ramas
+
+Este flujo te permite desarrollar varias características aisladamente (p. ej. enlace en el footer y cambio de teléfono) sin detener tu servidor de desarrollo.
+
+### 1. Arranca el servidor de desarrollo
+
+En una terminal, desde la raíz del proyecto:
+
+```bash
+npm run dev
+```
+
+Vite iniciará un servidor en `http://localhost:5173` con hot-reload.
+
+### 2. Crear una rama para el **footer**
+
+En otra terminal, sitúate en la misma carpeta y crea la rama:
+
+```bash
+git fetch origin
+git checkout -b feature/footer-link
+```
+
+- `feature/footer-link` contendrá solo los cambios del footer.
+
+### 3. Implementar y probar el cambio del footer
+
+- Edita `src/App.tsx` y añade el `<a>` alrededor de "eddevios" en el `<footer>`.
+- Guarda y observa en el navegador que Vite aplica los cambios al instante.
+
+### 4. Commit y push del footer
+
+```bash
+git add src/App.tsx
+git commit -m "feat(footer): add link to eddevios.com"
+git push -u origin feature/footer-link
+```
+
+Abre un Pull Request en GitHub para revisar e integrar estos cambios.
+
+### 5. Crear una rama para el **número de teléfono**
+
+Una vez aprobado el PR del footer, vuelve a `main` y crea la siguiente rama:
+
+```bash
+git checkout main
+git pull origin main
+git checkout -b feature/update-phone
+```
+
+- `feature/update-phone` contendrá solo el cambio del número.
+
+### 6. Implementar y probar el cambio del teléfono
+
+- Localiza el formulario de contacto en `src/App.tsx` (o componente correspondiente).
+- Sustituye `+34 600 000 000` por `+34 690 136 503`.
+- Guarda y comprueba el formulario en `http://localhost:5173`.
+
+### 7. Commit y push del teléfono
+
+```bash
+git add src/App.tsx
+git commit -m "fix(contact): update phone number to +34 690 136 503"
+git push -u origin feature/update-phone
+```
+
+Abre otro Pull Request para este cambio.
+
+### 8. Fusionar ramas y despliegue automático
+
+1. Tras la aprobación de ambos PRs, mergea cada rama en `main` (preferiblemente "Squash and merge").
+2. GitHub Actions detectará el push a `main`, ejecutará el build con Vite y desplegará tu sitio en Firebase Hosting automáticamente.
+
+Con este proceso cada cambio queda aislado, revisable y desplegable de forma independiente, manteniendo tu historial limpio y evitando interrupciones en tu servidor de desarrollo.
 
 ### 📦 Scripts Disponibles
 
