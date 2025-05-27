@@ -333,11 +333,23 @@ function App() {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Mail className="w-6 h-6 text-purple-400 mr-4" />
-                    <span>info@eddevios.com</span>
+                    <a
+                      href="mailto:info@eddevios.com"
+                      className="text-gray-800 hover:underline"
+                      aria-label="Enviar un email a info@eddevios.com"
+                    >
+                      info@eddevios.com
+                    </a>
                   </div>
                   <div className="flex items-center">
                     <Phone className="w-6 h-6 text-purple-400 mr-4" />
-                    <span>+34 600 000 000</span>
+                    <a
+                      href="tel:+34690136503"
+                      className="text-gray-800 hover:underline"
+                      aria-label="Llamar al teléfono +34 690 136 503"
+                    >
+                      +34 690 136 503
+                    </a>
                   </div>
                   <div className="flex items-center">
                     <MapPin className="w-6 h-6 text-purple-400 mr-4" />
