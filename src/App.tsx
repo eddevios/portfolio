@@ -399,9 +399,19 @@ function App() {
           </div>
         </AnimatedSection>
       </main>
-
       <footer className="bg-gray-800/30 py-8 text-center text-gray-400">
-        <p>© {new Date().getFullYear()} eddevios. Todos los derechos reservados.</p>
+        <p>
+          © {new Date().getFullYear()}{' '}
+          <a
+            href="https://eddevios.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-purple-400 hover:underline"
+          >
+            eddevios
+          </a>
+          . Todos los derechos reservados.
+        </p>
       </footer>
     </div>
   );
