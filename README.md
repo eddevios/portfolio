@@ -310,3 +310,5 @@ El sitio es completamente responsive con breakpoints de Tailwind:
 ---
 
 Con este README tendrás toda la información para editar el contenido, probar localmente y desplegar tus actualizaciones tanto en Firebase Hosting como en XAMPP de forma manual o automática vía GitHub Actions.
+
+
