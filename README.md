@@ -10,9 +10,6 @@ Portfolio profesional desarrollado con React, TypeScript y Tailwind CSS, present
 - **Framer Motion** – Animaciones declarativas
 - **Lucide React** – Iconos SVG como componentes React
 - **Vite** – Dev server ultrarrápido y bundler
-
-### Tecnologías adicionales
-
 - **Firebase Hosting** – para servir la build en producción y gestionar dominios
 - **GitHub Actions** – pipeline CI/CD que compila con Vite y despliega a Firebase automáticamente
 - **Node.js & npm** – entorno de ejecución y gestor de paquetes
@@ -26,18 +23,22 @@ Portfolio profesional desarrollado con React, TypeScript y Tailwind CSS, present
 
 ```text
 eddevios-portfolio/
-├── public/                    # Archivos estáticos (imágenes, favicon)
+├── public/                              # Archivos estáticos (imágenes, favicon)
 ├── src/
-│   ├── App.tsx               # Componente raíz (Hero, servicios, noticias, stats, formulario)
-│   ├── main.tsx              # Punto de entrada que renderiza <App/>
-│   └── index.css             # Importa @tailwind base, components y utilities
+│   ├── components/
+│   │    ├── ContactForm.tsx             # Formulario UI         
+│   │    └── ContactInfo.tsx             # Datos del Formulario
+│   ├── App.tsx                          # Componente raíz (Hero, servicios, noticias, stats, formulario)
+│   ├── main.tsx                         # Punto de entrada que renderiza <App/>
+│   ├── vite-env.d.ts                    # 
+│   └── index.css                        # Importa @tailwind base, components y utilities
 ├── .github/
 │   └── workflows/
 │       └── firebase-hosting-deploy.yml  # Workflow de GitHub Actions
-├── firebase.json             # Configuración de Firebase Hosting
-├── .firebaserc               # Alias de proyecto Firebase
-├── package.json              # Dependencias y scripts
-└── vite.config.ts            # Configuración de Vite
+├── firebase.json                        # Configuración de Firebase Hosting
+├── .firebaserc                          # Alias de proyecto Firebase
+├── package.json                         # Dependencias y scripts
+└── vite.config.ts                       # Configuración de Vite
 ```
 
 ## 🛠️ Principales Archivos
