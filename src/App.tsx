@@ -279,14 +279,6 @@ function App() {
               </div>
             )}
           </div>
-          <div className="mt-10 bg-red-900/40 p-6 rounded-lg text-sm">
-            <h3 className="font-bold text-red-300 mb-2">Variables de entorno cargadas:</h3>
-            <ul className="space-y-1 text-red-200">
-            <li><strong>VITE_BACKEND_URL:</strong> {backendUrl || 'No definida'}</li>
-            <li><strong>VITE_CONTACT_EMAIL:</strong> {emailTarget || 'No definida'}</li>
-            <li><strong>VITE_API_KEY:</strong> {apiKey || 'No definida'}</li>
-            </ul>
-          </div>
         </AnimatedSection>
 
         {/* News Section */}
