@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { ContactForm } from './components/ContactForm'
+import { ContactInfo } from './components/ContactInfo'
 import { 
   Smartphone, 
   Gamepad, 
@@ -44,6 +46,11 @@ function App() {
     email: '',
     message: ''
   });
+
+    // 🔒 Variables de entorno
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const emailTarget = import.meta.env.VITE_CONTACT_EMAIL;
+  const apiKey = import.meta.env.VITE_API_KEY; // ejemplo si usas una API externa
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -272,6 +279,14 @@ function App() {
               </div>
             )}
           </div>
+          <div className="mt-10 bg-red-900/40 p-6 rounded-lg text-sm">
+            <h3 className="font-bold text-red-300 mb-2">Variables de entorno cargadas:</h3>
+            <ul className="space-y-1 text-red-200">
+            <li><strong>VITE_BACKEND_URL:</strong> {backendUrl || 'No definida'}</li>
+            <li><strong>VITE_CONTACT_EMAIL:</strong> {emailTarget || 'No definida'}</li>
+            <li><strong>VITE_API_KEY:</strong> {apiKey || 'No definida'}</li>
+            </ul>
+          </div>
         </AnimatedSection>
 
         {/* News Section */}
@@ -328,85 +343,8 @@ function App() {
           <div className="bg-gray-800/30 p-8 rounded-lg backdrop-blur">
             <h2 className="text-4xl font-bold mb-12 text-center">Contacto</h2>
             <div className="grid md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-2xl font-semibold mb-6">Información de Contacto</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <Mail className="w-6 h-6 text-purple-400 mr-4" />
-                    <a
-                      href="mailto:info@eddevios.com"
-                      className="text-gray-800 hover:underline"
-                      aria-label="Enviar un email a info@eddevios.com"
-                    >
-                      info@eddevios.com
-                    </a>
-                  </div>
-                  <div className="flex items-center">
-                    <Phone className="w-6 h-6 text-purple-400 mr-4" />
-                    <a
-                      href="tel:+34690136503"
-                      className="text-gray-800 hover:underline"
-                      aria-label="Llamar al teléfono +34 690 136 503"
-                    >
-                      +34 690 136 503
-                    </a>
-                  </div>
-                  <div className="flex items-center">
-                    <MapPin className="w-6 h-6 text-purple-400 mr-4" />
-                    <span>Madrid, España</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <form onSubmit={handleFormSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">
-                      Nombre
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:border-purple-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:border-purple-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
-                      Mensaje
-                    </label>
-                    <textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={4}
-                      className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:border-purple-500"
-                      required
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center"
-                  >
-                    <Send className="w-5 h-5 mr-2" />
-                    Enviar Mensaje
-                  </button>
-                </form>
-              </div>
+              <ContactInfo />
+              <ContactForm />
             </div>
           </div>
         </AnimatedSection>
